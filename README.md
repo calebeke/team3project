@@ -16,7 +16,7 @@ For the Ionic 3 code please go [here] (https://github.com/ionicthemes/ionic-fire
 run `npm install` to install the project dependencies.
 run `ionic serve` to run the project locally.
 
-You will have to create your Firebase project and add the project configurations to the environment.ts file. [Read the tutorial to see how to do this](https://ionicthemes.com/tutorials/about/building-a-ionic-firebase-app-step-by-step).
+You will have to create your Firebase project and add npm the project configurations to the environment.ts file. [Read the tutorial to see how to do this](https://ionicthemes.com/tutorials/about/building-a-ionic-firebase-app-step-by-step).
 
 ### Demo
 Test the live demo in https://ionic-4-firebase-crud-demo.firebaseapp.com

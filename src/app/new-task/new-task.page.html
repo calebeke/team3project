@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title>New Task</ion-title>
+    <ion-title>New Destination</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,21 +14,33 @@
         <img [src]="image" alt="this is the image"/>
       </ion-col>
     </ion-row>
-    <ion-row no-padding>
+    <!--ion-row no-padding>
       <ion-col size="6" offset="3">
         <ion-button fill="outline" expand="block" size="small" (click)="openImagePicker()">Change Picture</ion-button>
       </ion-col>
-    </ion-row>
+    </ion-row>-->
   </div>
   <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
     <ion-item>
-      <ion-label position="floating" color="primary">Title</ion-label>
-      <ion-input type="text" formControlName="title"></ion-input>
+      <ion-label position="floating" color="primary">Location</ion-label>
+      <ion-input type="text" formControlName="location"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating" color="primary">Description</ion-label>
       <ion-input type="text" formControlName="description"></ion-input>
     </ion-item>
-    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Create</ion-button>
+    <ion-item>
+      <ion-label>Destination</ion-label>
+      <ion-select  formControlName="destination" placeholder="Select One">
+        <ion-select-option value="E">Europe</ion-select-option>
+        <ion-select-option value="Af">Africa</ion-select-option>
+        <ion-select-option value="Au">Australia</ion-select-option>
+        <ion-select-option value="As">Asia</ion-select-option>
+        <ion-select-option value="Sa">South America</ion-select-option>
+        <ion-select-option value="Na">North America</ion-select-option>
+        <ion-select-option value="An">Antarctica</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button class="submit-btn" expand="block" type="submit">Save Trip</ion-button>
   </form>
 </ion-content>

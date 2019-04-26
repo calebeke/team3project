@@ -34,15 +34,18 @@ export class NewTaskPage implements OnInit {
   resetFields(){
     this.image = "./assets/imgs/default_image.jpg";
     this.validations_form = this.formBuilder.group({
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required)
+      location: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      destination: new FormControl('', Validators.required),
     });
   }
 
   onSubmit(value){
     let data = {
-      title: value.title,
+    
+      location: value.location,
       description: value.description,
+      destination: value.destination,
       image: this.image
     }
     this.firebaseService.createTask(data)
@@ -57,7 +60,7 @@ export class NewTaskPage implements OnInit {
     this.imagePicker.hasReadPermission()
     .then((result) => {
       if(result == false){
-        // no callbacks required as this opens a popup which returns async
+        // no callbacks required as this opens a popup which returns async .
         this.imagePicker.requestReadPermission();
       }
       else if(result == true){

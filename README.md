@@ -1,3 +1,4 @@
+Team 3 Ionic Project (10514797, 10506981, 10510089, 10504140)
 ## Build a Complete Ionic 4 Firebase App
 
 In this ionic firebase tutorial we will show you how to create a firebase application to perform all CRUD operations in an ionic 4 application.

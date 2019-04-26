@@ -5,7 +5,7 @@
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Tasks List</ion-title>
+    <ion-title>Destination List</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,17 +16,17 @@
         <ion-thumbnail slot="start">
           <img [src]="item.payload.doc.data().image">
         </ion-thumbnail>
-        <ion-label>{{item.payload.doc.data().title}}</ion-label>
+        <ion-label>{{item.payload.doc.data().location}}</ion-label>
         <ion-button fill="clear" slot="end">Details</ion-button>
       </ion-item>
     </ion-list>
   </div>
   <div *ngIf="items.length == 0" class="empty-list">
-    Please create your first task.
+    Please create your Favourite Destination.
   </div>
 </ion-content>
 <ion-footer (click)="logout()">
   <ion-toolbar color="medium">
-    <ion-title>Log out</ion-title>
+    <ion-title>Sign out</ion-title>
   </ion-toolbar>
 </ion-footer>

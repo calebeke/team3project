@@ -43,15 +43,17 @@ export class DetailsPage implements OnInit {
      }
     })
     this.validations_form = this.formBuilder.group({
-      title: new FormControl(this.item.title, Validators.required),
-      description: new FormControl(this.item.description, Validators.required)
+      location: new FormControl(this.item.location, Validators.required),
+      description: new FormControl(this.item.description, Validators.required),
+      destination: new FormControl(this.item.destination, Validators.required)
     });
   }
 
   onSubmit(value){
     let data = {
-      title: value.title,
+      location: value.location,
       description: value.description,
+      destination: value.destination,
       image: this.image
     }
     this.firebaseService.updateTask(this.item.id,data)
@@ -65,7 +67,7 @@ export class DetailsPage implements OnInit {
   async delete() {
     const alert = await this.alertCtrl.create({
       header: 'Confirm',
-      message: 'Do you want to delete ' + this.item.title + '?',
+      message: 'Do you want to delete ' + this.item.Destination + '?',
       buttons: [
         {
           text: 'No',

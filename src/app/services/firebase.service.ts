@@ -20,7 +20,7 @@ export class FirebaseService {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
         if(currentUser){
-          this.snapshotChangesSubscription = this.afs.collection('people').doc(currentUser.uid).collection('tasks').snapshotChanges();
+          this.snapshotChangesSubscription = this.afs.collection('Destination').doc(currentUser.uid).collection('Favourite').snapshotChanges();
           resolve(this.snapshotChangesSubscription);
         }
       })
@@ -31,7 +31,7 @@ export class FirebaseService {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
         if(currentUser){
-          this.snapshotChangesSubscription = this.afs.doc<any>('people/' + currentUser.uid + '/tasks/' + taskId).valueChanges()
+          this.snapshotChangesSubscription = this.afs.doc<any>('Destination/' + currentUser.uid + '/Favourite/' + taskId).valueChanges()
           .subscribe(snapshots => {
             resolve(snapshots);
           }, err => {
@@ -50,7 +50,7 @@ export class FirebaseService {
   updateTask(taskKey, value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').doc(taskKey).set(value)
+      this.afs.collection('Destination').doc(currentUser.uid).collection('Favourite').doc(taskKey).set(value)
       .then(
         res => resolve(res),
         err => reject(err)
@@ -61,7 +61,7 @@ export class FirebaseService {
   deleteTask(taskKey){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').doc(taskKey).delete()
+      this.afs.collection('Destination').doc(currentUser.uid).collection('Favourite').doc(taskKey).delete()
       .then(
         res => resolve(res),
         err => reject(err)
@@ -72,9 +72,10 @@ export class FirebaseService {
   createTask(value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').add({
-        title: value.title,
+      this.afs.collection('Destination').doc(currentUser.uid).collection('Favourite').add({
+        location: value.location,
         description: value.description,
+        destination: value.destination,
         image: value.image
       })
       .then(

@@ -22,15 +22,28 @@
   </div>
   <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
     <ion-item>
-      <ion-label position="floating" color="primary">Title</ion-label>
-      <ion-input type="text" formControlName="title"></ion-input>
+      <ion-label position="floating" color="primary">Location</ion-label>
+      <ion-input type="text" formControlName="location"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating" color="primary">Description</ion-label>
       <ion-input type="text" formControlName="description"></ion-input>
     </ion-item>
-    <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button>
+    <ion-item>
+      <ion-label>Destination</ion-label>
+      <ion-select  formControlName="destination" placeholder="Select One">
+        <ion-select-option value="E">Europe</ion-select-option>
+        <ion-select-option value="Af">Africa</ion-select-option>
+        <ion-select-option value="Au">Australia</ion-select-option>
+        <ion-select-option value="As">Asia</ion-select-option>
+        <ion-select-option value="Sa">South America</ion-select-option>
+        <ion-select-option value="Na">North America</ion-select-option>
+        <ion-select-option value="An">Antarctica</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-button class="submit-button" expand="block" type="submit" >Save Trip</ion-button>
   </form>
-  <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button>
+  <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete Trip</ion-button>
 
 </ion-content>
